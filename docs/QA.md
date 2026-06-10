@@ -7,7 +7,7 @@ Use this checklist before opening a pull request or publishing a new release.
 - Serve the site through HTTP from `web/`.
 - Open `/` and confirm the home page loads without console errors.
 - Toggle ES/EN and confirm copy, buttons, cards, and routes update correctly.
-- Refresh `/`, `/#what-is-phishing`, `/#scenarios`, `/#resources`, and `/#ethics`.
+- Refresh `/`, `/#what-is-phishing`, `/#scenarios`, and `/#resources`.
 - In local Live Server, refresh a scenario hash route such as `/#/scenario/co-bank-urgent-verification`.
 
 ## Training flow

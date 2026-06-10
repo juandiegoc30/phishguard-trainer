@@ -58,7 +58,6 @@ The language toggle stores the selected language in `localStorage`. Main page se
 /#what-is-phishing
 /#scenarios
 /#resources
-/#ethics
 ```
 
 ## Validate

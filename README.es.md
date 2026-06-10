@@ -58,7 +58,6 @@ El selector de idioma guarda la preferencia en `localStorage`. Las secciones pri
 /#what-is-phishing
 /#scenarios
 /#resources
-/#ethics
 ```
 
 ## Validar

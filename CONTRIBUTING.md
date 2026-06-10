@@ -160,7 +160,7 @@ Before submitting a change, check:
 
 - Home page renders in Spanish and English.
 - Language toggle does not unexpectedly move the page.
-- Hash anchors work: `#hero`, `#what-is-phishing`, `#scenarios`, `#resources`, `#ethics`.
+- Hash anchors work: `#hero`, `#what-is-phishing`, `#scenarios`, `#resources`.
 - Scenario cards open correctly.
 - Scoring works after selecting suspicious elements.
 - Layout remains usable on mobile and desktop.
