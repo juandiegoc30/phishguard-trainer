@@ -225,7 +225,7 @@
     if (route.name === "home") appRoot.innerHTML = homeTemplate(lang, copy);
     else if (route.name === "scenarios") appRoot.innerHTML = scenariosTemplate(lang, copy);
     else if (route.name === "scenario") appRoot.innerHTML = scenarioTemplate(lang, copy, route.scenarioId);
-    else { window.location.replace(`${BASE_PATH}404.html`); return; }
+    else { window.location.replace(BASE_PATH); return; }
 
     attachHandlers(lang);
     initScrollReveals();
@@ -506,7 +506,7 @@
 
   function scenarioTemplate(lang, copy, scenarioId) {
     const scenario = getScenario(lang, scenarioId);
-    if (!scenario) { window.location.replace(`${BASE_PATH}404.html`); return ""; }
+    if (!scenario) { window.location.replace(BASE_PATH); return ""; }
 
     return `
       <section class="case-section max-w-7xl mx-auto px-6 py-12">

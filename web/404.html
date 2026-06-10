@@ -482,7 +482,15 @@
         if (brandNode) brandNode.href = basePath;
         if (routeNode) routeNode.textContent = route || "/";
 
-        if (!isStandalone404) {
+        const isValidSpaRoute =
+          route === "/" ||
+          route === "" ||
+          route === "/scenarios" ||
+          /^\/scenario\/.+/.test(route) ||
+          route === "/resources" ||
+          route === "/disclaimer";
+
+        if (!isStandalone404 && isValidSpaRoute) {
           window.setTimeout(function () {
             window.location.replace(targetUrl);
           }, 1600);
