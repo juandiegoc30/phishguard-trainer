@@ -225,7 +225,7 @@
     if (route.name === "home") appRoot.innerHTML = homeTemplate(lang, copy);
     else if (route.name === "scenarios") appRoot.innerHTML = scenariosTemplate(lang, copy);
     else if (route.name === "scenario") appRoot.innerHTML = scenarioTemplate(lang, copy, route.scenarioId);
-    else appRoot.innerHTML = notFoundTemplate(lang, copy);
+    else { window.location.replace(`${BASE_PATH}404.html`); return; }
 
     attachHandlers(lang);
     initScrollReveals();
@@ -506,7 +506,7 @@
 
   function scenarioTemplate(lang, copy, scenarioId) {
     const scenario = getScenario(lang, scenarioId);
-    if (!scenario) return notFoundTemplate(lang, copy);
+    if (!scenario) { window.location.replace(`${BASE_PATH}404.html`); return ""; }
 
     return `
       <section class="case-section max-w-7xl mx-auto px-6 py-12">
@@ -710,52 +710,6 @@
         </div>
         <p class="text-sm text-slate-300 leading-6">${escapeHtml(item.explanation)}</p>
       </div>`;
-  }
-
-  function notFoundTemplate(lang, copy) {
-    return `
-      <section class="max-w-6xl mx-auto px-6 py-20 md:py-28 grid lg:grid-cols-[minmax(0,1fr)_minmax(360px,480px)] gap-10 lg:gap-16 items-center">
-        <div>
-          <p class="section-kicker">404</p>
-          <h1 class="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-6 max-w-xl">${escapeHtml(copy.not_found)}</h1>
-          <p class="text-slate-400 text-lg leading-8 max-w-2xl">
-            ${escapeHtml(lang === "es" ? "La ruta solicitada no coincide con un escenario disponible. Puedes volver al entrenamiento y seguir practicando con casos ficticios y seguros." : "The requested route does not match an available scenario. You can return to training and keep practicing with safe fictional cases.")}
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="${attr(sectionUrl("scenarios"))}" data-scroll-target="scenarios" class="pg-button primary">${escapeHtml(copy.more_scenarios)}</a>
-            <a href="${attr(hrefForRoute("/"))}" data-link="/" class="pg-button secondary">${escapeHtml(lang === "es" ? "Volver al inicio" : "Back home")}</a>
-          </div>
-        </div>
-        <div class="rounded-2xl border border-slate-800 bg-slate-900/80 shadow-2xl shadow-slate-950/40 overflow-hidden">
-          <div class="flex items-center justify-between gap-4 border-b border-slate-800 px-5 py-4">
-            <div class="flex gap-2" aria-hidden="true">
-              <span class="w-3 h-3 rounded-full bg-rose-400"></span>
-              <span class="w-3 h-3 rounded-full bg-amber-300"></span>
-              <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
-            </div>
-            <strong class="text-sm text-slate-300">PhishGuard route check</strong>
-          </div>
-          <div class="p-6">
-            <div class="rounded-xl border border-slate-800 bg-slate-950/60 p-5 space-y-4">
-              <div class="flex items-center justify-between gap-4 border-b border-slate-800 pb-3">
-                <span class="text-slate-400">${escapeHtml(lang === "es" ? "Estado" : "Status")}</span>
-                <strong>${escapeHtml(lang === "es" ? "Ruta no válida" : "Invalid route")}</strong>
-              </div>
-              <div class="flex items-center justify-between gap-4 border-b border-slate-800 pb-3">
-                <span class="text-slate-400">${escapeHtml(lang === "es" ? "Contenido" : "Content")}</span>
-                <strong>${escapeHtml(lang === "es" ? "No encontrado" : "Not found")}</strong>
-              </div>
-              <div class="flex flex-wrap gap-2 pt-1" aria-hidden="true">
-                <span class="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-xs font-bold text-cyan-300">${escapeHtml(lang === "es" ? "URL revisada" : "URL checked")}</span>
-                <span class="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-xs font-bold text-cyan-300">${escapeHtml(lang === "es" ? "Sin datos enviados" : "No data sent")}</span>
-              </div>
-            </div>
-            <p class="mt-5 border-l-4 border-amber-300 bg-amber-300/10 px-4 py-3 text-sm leading-6 text-amber-100">
-              ${escapeHtml(lang === "es" ? "Si llegaste aquí desde un enlace externo, revisa siempre el dominio antes de continuar." : "If you arrived from an external link, always check the domain before continuing.")}
-            </p>
-          </div>
-        </div>
-      </section>`;
   }
 
   function attachHandlers(lang) {
