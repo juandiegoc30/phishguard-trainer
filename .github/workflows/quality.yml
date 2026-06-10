@@ -1,0 +1,42 @@
+name: Quality checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+    paths:
+      - 'web/**'
+      - 'tests/**'
+      - '.github/workflows/quality.yml'
+      - 'README.md'
+      - 'README.es.md'
+      - 'CONTRIBUTING.md'
+      - 'SECURITY.md'
+      - 'docs/**'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate static app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check web/assets/js/data.js
+          node --check web/assets/js/scoring.js
+          node --check web/assets/js/app.js
+          node --check web/sw.js
+
+      - name: Run scoring tests
+        run: node tests/scoring.test.js

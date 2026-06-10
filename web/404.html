@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>404 | PhishGuard Trainer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ruta no encontrada en PhishGuard Trainer.">
+  <meta name="theme-color" content="#020617">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/img/404-lost-email-transparent.webp" as="image" type="image/webp" fetchpriority="high">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #020617;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --quiet: #94a3b8;
+      --line: rgba(148, 163, 184, 0.22);
+      --cyan: #22d3ee;
+      --cyan-strong: #67e8f9;
+      --amber: #fbbf24;
+      --red: #fb7185;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        linear-gradient(rgba(34, 211, 238, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 211, 238, 0.035) 1px, transparent 1px),
+        linear-gradient(135deg, rgba(34, 211, 238, 0.11), transparent 42%),
+        var(--bg);
+      background-size: 44px 44px, 44px 44px, auto, auto;
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      z-index: 2;
+      width: min(100%, 1180px);
+      transform: translateX(-50%);
+      padding: 8px 0 24px;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-decoration: none;
+    }
+
+    .brand-link img {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: rgba(34, 211, 238, 0.08);
+      box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.14), 0 16px 34px rgba(34, 211, 238, 0.08);
+    }
+
+    .brand-link:focus-visible {
+      outline: 3px solid rgba(103, 232, 249, 0.72);
+      outline-offset: 6px;
+      border-radius: 14px;
+    }
+
+    .shell {
+      width: min(100%, 1180px);
+      margin: 0;
+      display: grid;
+      grid-template-columns: minmax(540px, 0.92fr) minmax(360px, 0.82fr);
+      gap: clamp(28px, 4.5vw, 58px);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--cyan-strong);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: rgba(103, 232, 249, 0.72);
+    }
+
+    h1 {
+      margin: 20px 0 16px;
+      max-width: 15ch;
+      font-size: clamp(48px, 7vw, 86px);
+      line-height: 0.98;
+      letter-spacing: 0;
+      text-shadow:
+        0 0 26px rgba(34, 211, 238, 0.08),
+        0 24px 70px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 span {
+      color: var(--cyan-strong);
+    }
+
+    .copy {
+      max-width: 560px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      min-height: 48px;
+      border-radius: 10px;
+      padding: 13px 18px;
+      border: 1px solid transparent;
+      background: var(--cyan);
+      color: #06202a;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 18px 44px rgba(34, 211, 238, 0.18);
+      white-space: nowrap;
+    }
+
+    .button.secondary {
+      background: rgba(15, 23, 42, 0.72);
+      border-color: #334155;
+      color: #e2e8f0;
+      box-shadow: none;
+    }
+
+    .button:focus-visible {
+      outline: 3px solid rgba(103, 232, 249, 0.72);
+      outline-offset: 4px;
+    }
+
+    .visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1;
+      isolation: isolate;
+      animation: visual-enter 760ms cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    .visual::before {
+      content: "";
+      position: absolute;
+      width: min(122%, 780px);
+      height: min(78%, 500px);
+      left: 50%;
+      top: 54%;
+      border-radius: 999px;
+      background: radial-gradient(ellipse at center, rgba(103, 232, 249, 0.28), rgba(34, 211, 238, 0.12) 50%, transparent 74%);
+      filter: blur(32px);
+      transform: translate(-50%, -50%);
+      opacity: 0.64;
+      z-index: -1;
+      animation: glow-breathe 4.8s ease-in-out infinite;
+    }
+
+    .visual picture {
+      display: block;
+      animation: lost-float 6.4s ease-in-out 900ms infinite;
+    }
+
+    .lost-image {
+      width: min(100%, 560px);
+      height: auto;
+      display: block;
+      border-radius: 28px;
+      filter:
+        drop-shadow(0 34px 80px rgba(0, 0, 0, 0.34))
+        drop-shadow(0 0 18px rgba(34, 211, 238, 0.08));
+    }
+
+    .eyebrow,
+    h1,
+    .copy,
+    .actions {
+      animation: copy-enter 680ms cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    h1 {
+      animation-delay: 90ms;
+    }
+
+    .copy {
+      animation-delay: 170ms;
+    }
+
+    .actions {
+      animation-delay: 250ms;
+    }
+
+    @keyframes copy-enter {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes visual-enter {
+      from {
+        opacity: 0;
+        transform: translateY(22px) scale(0.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes lost-float {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(0.7deg);
+      }
+    }
+
+    @keyframes glow-breathe {
+      0%, 100% {
+        opacity: 0.62;
+        transform: translate(-50%, -50%) scale(0.98);
+      }
+
+      50% {
+        opacity: 0.86;
+        transform: translate(-50%, -50%) scale(1.03);
+      }
+    }
+
+    @media (max-width: 980px) {
+      body {
+        place-items: start center;
+        padding: clamp(18px, 5vw, 36px);
+      }
+
+      .topbar {
+        position: static;
+        transform: none;
+        padding-bottom: 18px;
+      }
+
+      .shell {
+        width: min(100%, 680px);
+        grid-template-columns: 1fr;
+        gap: clamp(10px, 3vw, 22px);
+        align-items: start;
+      }
+
+      h1 {
+        max-width: 100%;
+        font-size: clamp(42px, 9vw, 68px);
+      }
+
+      .visual {
+        width: 100%;
+        justify-self: start;
+        aspect-ratio: auto;
+        min-height: 0;
+        place-items: start;
+      }
+
+      .lost-image {
+        width: min(78vw, 430px);
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 18px 14px;
+      }
+
+      .topbar {
+        padding-inline: clamp(14px, 4.6vw, 22px);
+      }
+
+      .shell {
+        gap: 28px;
+      }
+
+      .shell > section:first-child {
+        padding-inline: clamp(14px, 4.6vw, 22px);
+        text-align: center;
+      }
+
+      .eyebrow {
+        justify-content: center;
+      }
+
+      h1 {
+        margin-inline: auto;
+        margin-top: 18px;
+        font-size: clamp(38px, 10.8vw, 48px);
+        line-height: 1.02;
+      }
+
+      .copy {
+        margin-inline: auto;
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .actions {
+        justify-content: center;
+        gap: 10px;
+        margin-top: 28px;
+      }
+
+      .button {
+        min-height: 44px;
+        padding: 11px 14px;
+        font-size: 14px;
+        justify-content: center;
+      }
+
+      .visual {
+        place-items: start center;
+      }
+
+      .lost-image {
+        width: min(88vw, 340px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let basePath = "/";
+
+      if (path === "/web" || path.startsWith("/web/")) {
+        basePath = "/web/";
+      } else if (window.location.hostname.endsWith("github.io")) {
+        const firstSegment = path.split("/").filter(Boolean)[0];
+        basePath = firstSegment ? `/${firstSegment}/` : "/";
+      }
+
+      const route = path.startsWith(basePath)
+        ? `/${path.slice(basePath.length)}`.replace(/\/+/g, "/")
+        : "/";
+
+      const copy = {
+        es: {
+          htmlLang: "es",
+          title: "404 | PhishGuard Trainer",
+          description: "Ruta no encontrada en PhishGuard Trainer.",
+          brandLabel: "Volver a PhishGuard Trainer",
+          eyebrow: "Ruta no encontrada",
+          heading: "404: esta pista ",
+          headingAccent: "se perdió",
+          body: "El enlace no coincide con ningún escenario disponible. Puedes volver al entrenador o elegir otro caso para seguir practicando.",
+          actionsLabel: "Acciones de navegación",
+          primaryAction: "Volver al entrenador",
+          secondaryAction: "Ver escenarios",
+          visualLabel: "Ilustración de correo perdido",
+          imageAlt: "Correo perdido en un laberinto con una lupa y un escudo de seguridad."
+        },
+        en: {
+          htmlLang: "en",
+          title: "404 | PhishGuard Trainer",
+          description: "Page not found in PhishGuard Trainer.",
+          brandLabel: "Back to PhishGuard Trainer",
+          eyebrow: "Page not found",
+          heading: "404: this clue ",
+          headingAccent: "got lost",
+          body: "This link does not match any available scenario. You can return to the trainer or choose another case to keep practicing.",
+          actionsLabel: "Navigation actions",
+          primaryAction: "Back to trainer",
+          secondaryAction: "View scenarios",
+          visualLabel: "Lost email illustration",
+          imageAlt: "A lost email in a maze with a magnifying glass and a security shield."
+        }
+      };
+
+      function getLang() {
+        try {
+          const stored = String(window.localStorage.getItem("phishguard_lang") || "").toLowerCase();
+          return stored === "en" ? "en" : "es";
+        } catch (error) {
+          return "es";
+        }
+      }
+
+      function applyLanguage() {
+        const text = copy[getLang()];
+        document.documentElement.lang = text.htmlLang;
+        document.title = text.title;
+
+        const description = document.querySelector('meta[name="description"]');
+        const brandNode = document.querySelector("[data-brand-link]");
+        const eyebrowNode = document.querySelector("[data-eyebrow]");
+        const headingNode = document.querySelector("[data-heading]");
+        const bodyNode = document.querySelector("[data-copy]");
+        const actionsNode = document.querySelector("[data-actions]");
+        const redirectNode = document.querySelector("[data-redirect-link]");
+        const scenariosNode = document.querySelector("[data-scenarios-link]");
+        const visualNode = document.querySelector("[data-visual]");
+        const imageNode = document.querySelector("[data-lost-image]");
+
+        if (description) description.content = text.description;
+        if (brandNode) brandNode.setAttribute("aria-label", text.brandLabel);
+        if (eyebrowNode) eyebrowNode.textContent = text.eyebrow;
+        if (headingNode) headingNode.innerHTML = `${text.heading}<span>${text.headingAccent}</span>`;
+        if (bodyNode) bodyNode.textContent = text.body;
+        if (actionsNode) actionsNode.setAttribute("aria-label", text.actionsLabel);
+        if (redirectNode) redirectNode.textContent = text.primaryAction;
+        if (scenariosNode) scenariosNode.textContent = text.secondaryAction;
+        if (visualNode) visualNode.setAttribute("aria-label", text.visualLabel);
+        if (imageNode) imageNode.alt = text.imageAlt;
+      }
+
+      const isStandalone404 = /\/404\.html$/i.test(path);
+      const params = new URLSearchParams(window.location.search);
+      params.set("redirect", route || "/");
+      const targetUrl = isStandalone404 ? basePath : `${basePath}?${params.toString()}`;
+
+      window.addEventListener("DOMContentLoaded", function () {
+        applyLanguage();
+
+        const redirectNode = document.querySelector("[data-redirect-link]");
+        const scenariosNode = document.querySelector("[data-scenarios-link]");
+        const brandNode = document.querySelector("[data-brand-link]");
+        const routeNode = document.querySelector("[data-route]");
+
+        if (redirectNode) redirectNode.href = targetUrl;
+        if (scenariosNode) scenariosNode.href = `${basePath}#scenarios`;
+        if (brandNode) brandNode.href = basePath;
+        if (routeNode) routeNode.textContent = route || "/";
+
+        if (!isStandalone404) {
+          window.setTimeout(function () {
+            window.location.replace(targetUrl);
+          }, 1600);
+        }
+
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register(`${basePath}sw.js`).catch(function () {});
+        }
+      });
+    })();
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand-link" href="/" data-brand-link aria-label="Volver a PhishGuard Trainer">
+      <img src="favicon.svg" alt="" aria-hidden="true">
+      <span>PhishGuard Trainer</span>
+    </a>
+  </header>
+
+  <main class="shell" aria-labelledby="page-title">
+    <section>
+      <span class="eyebrow" data-eyebrow>Ruta no encontrada</span>
+      <h1 id="page-title" data-heading>404: esta pista <span>se perdió</span></h1>
+      <p class="copy" data-copy>
+        El enlace no coincide con ningún escenario disponible. Puedes volver al entrenador o elegir otro caso para seguir practicando.
+      </p>
+      <div class="actions" aria-label="Acciones de navegación" data-actions>
+        <a class="button" href="/" data-redirect-link>Volver al entrenador</a>
+        <a class="button secondary" href="/#scenarios" data-scenarios-link>Ver escenarios</a>
+      </div>
+    </section>
+
+    <section class="visual" aria-label="Ilustración de correo perdido" data-visual>
+      <picture>
+        <source srcset="assets/img/404-lost-email-transparent.webp" type="image/webp">
+        <img class="lost-image" src="assets/img/404-lost-email-transparent.png" alt="Correo perdido en un laberinto con una lupa y un escudo de seguridad." width="1254" height="1254" decoding="sync" fetchpriority="high" data-lost-image>
+      </picture>
+    </section>
+  </main>
+
+  <noscript>
+    <p style="max-width: 42rem; margin: 1rem auto; color: #cbd5e1; line-height: 1.6;">
+      JavaScript está desactivado. Usa el enlace "Volver al entrenador" para regresar a la página principal.
+    </p>
+  </noscript>
+</body>
+</html>
