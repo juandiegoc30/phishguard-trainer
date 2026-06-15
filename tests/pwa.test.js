@@ -68,6 +68,10 @@ assert.ok(sw.includes('"fetch"'), "sw.js should register a fetch handler");
 assert.ok(sw.includes("caches.open"), "sw.js should open a cache");
 assert.ok(sw.includes("skipWaiting"), "sw.js should call skipWaiting on install");
 assert.ok(sw.includes("clients.claim"), "sw.js should call clients.claim on activate");
+assert.ok(
+  sw.includes("tailwind.css"),
+  "sw.js should include the compiled Tailwind CSS in the cached assets"
+);
 
 // SW registration in index.html (via app.js script tag) or inline
 const indexHtml = fs.readFileSync("web/index.html", "utf8");

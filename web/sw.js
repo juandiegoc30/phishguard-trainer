@@ -4,6 +4,7 @@ const LOCAL_ASSETS = [
   "./index.html",
   "./favicon.svg",
   "./manifest.webmanifest",
+  "./assets/css/tailwind.css",
   "./assets/css/custom.css",
   "./assets/js/app.js",
   "./assets/js/data.js",
@@ -18,14 +19,9 @@ const LOCAL_ASSETS = [
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) =>
-      Promise.all([
-        cache.addAll(LOCAL_ASSETS),
-        fetch("https://cdn.tailwindcss.com")
-          .then((response) => cache.put("https://cdn.tailwindcss.com", response))
-          .catch(() => {}),
-      ])
-    ).then(() => self.skipWaiting())
+    caches.open(CACHE_NAME)
+      .then((cache) => cache.addAll(LOCAL_ASSETS))
+      .then(() => self.skipWaiting())
   );
 });
 
@@ -46,10 +42,7 @@ self.addEventListener("fetch", (event) => {
   if (request.method !== "GET") return;
 
   const url = new URL(request.url);
-  const isSameOrigin = url.origin === self.location.origin;
-  const isTailwindCDN = url.hostname === "cdn.tailwindcss.com";
-
-  if (!isSameOrigin && !isTailwindCDN) return;
+  if (url.origin !== self.location.origin) return;
 
   if (request.mode === "navigate") {
     event.respondWith(

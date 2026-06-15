@@ -27,9 +27,22 @@ The project is designed for defensive security education. It does not use real b
 
 The first screen introduces the training flow, then learners choose a scenario, inspect a simulated message, select suspicious elements, and review a score with explanations.
 
+## Build CSS
+
+Tailwind CSS is compiled at build time. After cloning, install devDependencies and generate the stylesheet:
+
+```bash
+npm install
+npm run build:css
+```
+
+Use `npm run dev:css` to rebuild automatically while editing.
+
+The generated `web/assets/css/tailwind.css` is committed to the repository so the site can be served without a build step.
+
 ## Run locally
 
-No backend or build step is required, but the project should be served through a static HTTP server from the `web/` directory. Opening `web/index.html` directly from the filesystem can behave differently from a real static server.
+No backend or runtime build step is required, but the project should be served through a static HTTP server from the `web/` directory. Opening `web/index.html` directly from the filesystem can behave differently from a real static server.
 
 Python:
 
