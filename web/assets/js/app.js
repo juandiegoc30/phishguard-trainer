@@ -802,7 +802,7 @@
     if (!targets.length) return;
 
     function update() {
-      const threshold = window.scrollY + (headerRoot?.offsetHeight ?? 0) + 24;
+      const threshold = window.scrollY + Math.round(window.innerHeight * 0.5);
       let current = null;
       for (const { link, section } of targets) {
         if (section.getBoundingClientRect().top + window.scrollY <= threshold) current = link;
