@@ -70,6 +70,7 @@ node --check web/assets/js/scoring.js
 node --check web/assets/js/app.js
 node --check web/sw.js
 node tests/scoring.test.js
+node tests/pwa.test.js
 ```
 
 For manual UI checks, use [docs/QA.md](docs/QA.md). For scenario safety review, use [docs/CONTENT_SAFETY.md](docs/CONTENT_SAFETY.md). For open source credits, see [docs/ACKNOWLEDGMENTS.md](docs/ACKNOWLEDGMENTS.md).
