@@ -72,7 +72,7 @@ node --check web/sw.js
 node tests/scoring.test.js
 ```
 
-For manual UI checks, use [docs/QA.md](docs/QA.md). For scenario safety review, use [docs/CONTENT_SAFETY.md](docs/CONTENT_SAFETY.md).
+For manual UI checks, use [docs/QA.md](docs/QA.md). For scenario safety review, use [docs/CONTENT_SAFETY.md](docs/CONTENT_SAFETY.md). For open source credits, see [docs/ACKNOWLEDGMENTS.md](docs/ACKNOWLEDGMENTS.md).
 
 ## Project structure
 

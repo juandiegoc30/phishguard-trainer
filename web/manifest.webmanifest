@@ -1,0 +1,21 @@
+{
+  "name": "PhishGuard Trainer",
+  "short_name": "PhishGuard",
+  "description": "Open source phishing awareness trainer with fictional bilingual email and SMS scenarios.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "lang": "es",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["education", "security"]
+}

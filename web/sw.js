@@ -1,14 +1,31 @@
-const PHISHGUARD_CACHE = "phishguard-assets-v2";
-const CACHED_ASSETS = [
-  "assets/img/404-lost-email-transparent.webp",
-  "assets/img/404-lost-email-transparent.png"
+const CACHE_NAME = "phishguard-v3";
+const LOCAL_ASSETS = [
+  "./",
+  "./index.html",
+  "./favicon.svg",
+  "./manifest.webmanifest",
+  "./assets/css/custom.css",
+  "./assets/js/app.js",
+  "./assets/js/data.js",
+  "./assets/js/scoring.js",
+  "./assets/img/hero-phishing-training.webp",
+  "./assets/img/hero-phishing-training.png",
+  "./assets/img/404-lost-email-transparent.webp",
+  "./assets/img/404-lost-email-transparent.png",
+  "./assets/img/flags/co.svg",
+  "./assets/img/flags/us.svg",
 ];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(PHISHGUARD_CACHE)
-      .then((cache) => cache.addAll(CACHED_ASSETS))
-      .then(() => self.skipWaiting())
+    caches.open(CACHE_NAME).then((cache) =>
+      Promise.all([
+        cache.addAll(LOCAL_ASSETS),
+        fetch("https://cdn.tailwindcss.com")
+          .then((response) => cache.put("https://cdn.tailwindcss.com", response))
+          .catch(() => {}),
+      ])
+    ).then(() => self.skipWaiting())
   );
 });
 
@@ -17,7 +34,7 @@ self.addEventListener("activate", (event) => {
     caches.keys()
       .then((keys) => Promise.all(
         keys
-          .filter((key) => key.startsWith("phishguard-") && key !== PHISHGUARD_CACHE)
+          .filter((key) => key.startsWith("phishguard-") && key !== CACHE_NAME)
           .map((key) => caches.delete(key))
       ))
       .then(() => self.clients.claim())
@@ -25,12 +42,33 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
-  const url = new URL(event.request.url);
-  const shouldCache = CACHED_ASSETS.some((asset) => url.pathname.endsWith(`/${asset}`));
+  const { request } = event;
+  if (request.method !== "GET") return;
 
-  if (!shouldCache) return;
+  const url = new URL(request.url);
+  const isSameOrigin = url.origin === self.location.origin;
+  const isTailwindCDN = url.hostname === "cdn.tailwindcss.com";
+
+  if (!isSameOrigin && !isTailwindCDN) return;
+
+  if (request.mode === "navigate") {
+    event.respondWith(
+      fetch(request).catch(() =>
+        caches.match(new URL("./index.html", self.location).href)
+      )
+    );
+    return;
+  }
 
   event.respondWith(
-    caches.match(event.request).then((cached) => cached || fetch(event.request))
+    caches.match(request).then((cached) => {
+      if (cached) return cached;
+      return fetch(request).then((response) => {
+        if (response && response.status === 200 && response.type !== "error") {
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, response.clone()));
+        }
+        return response;
+      });
+    })
   );
 });

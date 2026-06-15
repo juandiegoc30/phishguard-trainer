@@ -863,6 +863,12 @@
     window.scrollTo({ top: Math.max(0, sectionTop - headerHeight - offsetFromTop), behavior: "smooth" });
   }
 
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register(assetUrl("sw.js")).catch(() => {});
+    });
+  }
+
   window.addEventListener("hashchange", () => {
     normalizeInitialUrl();
     render();
