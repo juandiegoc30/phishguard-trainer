@@ -2019,6 +2019,7 @@ label:focus-within {
     background: rgba(103, 232, 249, 0.72);
 }
 
+
 .hero-section {
     min-height: min(680px, calc(100vh - 76px));
     display: grid;
@@ -3181,6 +3182,16 @@ label:focus-within {
 
     .hero-copy h1 {
         text-align: center;
+    }
+
+    .hero-copy .section-kicker {
+        width: 100%;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .hero-copy .section-kicker::before {
+        display: none;
     }
 
     .hero-cta {
